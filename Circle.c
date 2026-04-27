@@ -1,33 +1,28 @@
-
 #include <stdio.h>
 #include <string.h>
 
-#define SIZE 5
+#define SIZE 7
 
 char buffer[SIZE];
 int start = -1;
 int end = -1;
 
-// insilaisation (Initialization)
-void insilaisation() {
+void insilasation() {
     start = -1;
     end = -1;
 }
 
-// فحص الامتلاء
 int it_isfull() {
     return (end + 1) % SIZE == start;
 }
 
-// فحص الفراغ
 int it_isempty() {
     return start == -1;
 }
 
-// إدخال
 void enqueue(char value) {
     if (it_isfull()) {
-        printf("Overflow! Buffer is full\n");
+        printf("sorry, Buffer is full\n");
         return;
     }
 
@@ -41,10 +36,9 @@ void enqueue(char value) {
     printf("Inserted: %c\n", value);
 }
 
-// إزالة
 char dequeue() {
     if (it_isempty()) {
-        printf("Underflow! Buffer is empty\n");
+        printf(",sorry ,Buffer is empty\n");
         return '\0';
     }
 
@@ -59,7 +53,6 @@ char dequeue() {
     return value;
 }
 
-// عرض
 void display() {
     if (it_isempty()) {
         printf("Buffer is empty\n");
@@ -79,26 +72,33 @@ void display() {
 int main() {
     insilaisation();
 
-    char name[20];
+    char name[] = "ruqayya";
+    char nickname[20];
 
-    printf("Enter your name: ");
-    scanf("%s", name);
+    printf("Inserting name: %s\n", name);
 
-    char text[] = "CE-ESY";
-
-    for (int i = 0; i < strlen(text); i++) {
-        enqueue(text[i]);
+    for (int i = 0; i < strlen(name); i++) {
+        enqueue(name[i]);
     }
 
     display();
 
+    printf("\nEnter your last name: ");
+    scanf("%s", nickmane);
+
+    for (int i = 0; i < strlen(nickname); i++) {
+        enqueue(nickname[i]);
+    }
+
+    printf("\nRemoving two elements...\n");
     printf("Removed: %c\n", dequeue());
     printf("Removed: %c\n", dequeue());
 
     display();
 
-    enqueue('X');
-    enqueue('Y');
+    printf("\nInserting first two letters of last name...\n");
+    enqueue(nickname[0]);
+    enqueue(nickname[1]);
 
     display();
 
