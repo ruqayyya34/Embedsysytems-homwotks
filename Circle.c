@@ -7,7 +7,7 @@ char buffer[SIZE];
 int start = -1;
 int end = -1;
 
-void insilasation() {
+void insilaisation() {
     start = -1;
     end = -1;
 }
@@ -22,7 +22,7 @@ int it_isempty() {
 
 void enqueue(char value) {
     if (it_isfull()) {
-        printf("sorry, Buffer is full\n");
+        printf("Sorry! Buffer is full\n");
         return;
     }
 
@@ -38,7 +38,7 @@ void enqueue(char value) {
 
 char dequeue() {
     if (it_isempty()) {
-        printf(",sorry ,Buffer is empty\n");
+        printf("Underflow! Buffer is empty\n");
         return '\0';
     }
 
@@ -83,8 +83,8 @@ int main() {
 
     display();
 
-    printf("\nEnter your last name: ");
-    scanf("%s", nickmane);
+    printf("\nEnter your nickname: ");
+    scanf("%s", nickname);
 
     for (int i = 0; i < strlen(nickname); i++) {
         enqueue(nickname[i]);
@@ -96,7 +96,7 @@ int main() {
 
     display();
 
-    printf("\nInserting first two letters of last name...\n");
+    printf("\nInserting first two letters of nickname...\n");
     enqueue(nickname[0]);
     enqueue(nickname[1]);
 
